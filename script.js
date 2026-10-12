@@ -33,12 +33,13 @@ const emojiCodes = [
     129392  
 ];
 
-
-
 const $gallery = document.getElementById('gallery');
 
+// function to show emojis within gallery
 function showEmojis(count = emojiCodes.length){
+
     $gallery.innerHTML = '';
+    
     for (let index = 0; index < count; index++){
         const code = emojiCodes[index];
 
@@ -63,4 +64,5 @@ function showEmojis(count = emojiCodes.length){
     }
 }
 
+// display emojis
 showEmojis();
