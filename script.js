@@ -17,7 +17,7 @@
 
 // CALL showEmojis() to display all emojis
 
-
+// Array of emojis
 const emojiCodes = [
     129409, 
     128640, 
@@ -31,6 +31,36 @@ const emojiCodes = [
     129498, 
     128584, 
     129392  
-]
+];
 
-const $gallery = document.getElementById('gallery')
+
+
+const $gallery = document.getElementById('gallery');
+
+function showEmojis(count = emojiCodes.length){
+    $gallery.innerHTML = '';
+    for (let index = 0; index < count; index++){
+        const code = emojiCodes[index];
+
+        const emoji = String.fromCodePoint(code);
+
+        const $card = document.createElement('div');
+        $card.classList.add('emoji-card');
+
+        const $emoji = document.createElement('p')
+        $emoji.classList.add('emoji');
+        $emoji.textContent = emoji; 
+
+        const $emojiCode = document.createElement('p');
+        $emojiCode.classList.add('emoji-code');
+        $emojiCode.textContent = code;
+
+        $card.appendChild($emoji);
+        $card.appendChild($emojiCode)
+
+        $gallery.appendChild($card);
+
+    }
+}
+
+showEmojis();
